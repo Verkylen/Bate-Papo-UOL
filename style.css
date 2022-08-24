@@ -34,6 +34,39 @@ header ion-icon {
     padding-top: 26px;
 }
 
+.Container div {
+    margin-bottom: 4px;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.System_message {
+    background-color: #dcdcdc;
+}
+
+.Public_message {
+    background-color: #ffffff;
+}
+
+.Private_message {
+    background-color: #ffdede;
+}
+
+time {
+    margin-right: 8px;
+    color: #aaaaaa;
+}
+
+strong {
+    font-weight: 700;
+}
+
+span {
+    margin-right: 8px;
+}
+
 footer {
     width: 375px;
     height: 80px;
