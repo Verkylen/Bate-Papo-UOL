@@ -21,11 +21,11 @@ function Active() {
 
 setInterval(Active, 5000);
 
-let Request;
-
 function Errormessage(x) {
     console.log(x);
 }
+
+let Request;
 
 function Refresh() {
     Request = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
@@ -33,13 +33,7 @@ function Refresh() {
     Request.catch(Errormessage);
 }
 
-Refresh();
-
-let View;
-
 function Update(Response) {
-    // document.querySelector('.Container div:nth-child(100)').scrollIntoView();
-
     for (let i = 0; i < (Response.data).length; i++) {
         let From = Response.data[i].from;
         let To = Response.data[i].to;
@@ -57,15 +51,17 @@ function Update(Response) {
                 break;
 
             case 'private_message':
-                document.querySelector('.Container').innerHTML += `<div class="Private_message"><time>${Time}</time><strong>${From}</strong> reservadamente para <strong>${To}</strong><span>:</span>${Text}</div>`;
+                if (To == User) {
+                    document.querySelector('.Container').innerHTML += `<div class="Private_message"><time>${Time}</time><strong>${From}</strong> reservadamente para <strong>${To}</strong><span>:</span>${Text}</div>`;
+                }
                 break;
         }
     }
-    console.log('Carregou')
-    
-    View = document.querySelector('.Container div:nth-child(100)');
 
+    const View = document.querySelector('.Container div:last-child');
     View.scrollIntoView();
 }
+
+Refresh();
 
 setInterval(Refresh, 3000);
