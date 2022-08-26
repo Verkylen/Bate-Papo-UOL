@@ -23,14 +23,23 @@ setInterval(Active, 5000);
 
 let Request;
 
+function Errormessage(x) {
+    console.log(x);
+}
+
 function Refresh() {
     Request = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     Request.then(Update);
+    Request.catch(Errormessage);
 }
 
 Refresh();
 
+let View;
+
 function Update(Response) {
+    // document.querySelector('.Container div:nth-child(100)').scrollIntoView();
+
     for (let i = 0; i < (Response.data).length; i++) {
         let From = Response.data[i].from;
         let To = Response.data[i].to;
@@ -52,6 +61,11 @@ function Update(Response) {
                 break;
         }
     }
+    console.log('Carregou')
+    
+    View = document.querySelector('.Container div:nth-child(100)');
+
+    View.scrollIntoView();
 }
 
 setInterval(Refresh, 3000);
