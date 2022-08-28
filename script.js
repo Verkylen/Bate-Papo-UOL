@@ -2,11 +2,6 @@ let User = prompt('Digite seu nome de usuário:');
 let Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
 
 function Fail(Response) {
-    console.log('Fail')
-    console.log(Response);
-    console.log("Status code: " + Response.response.status);
-	console.log("Mensagem de erro: " + Response.response.data);
-
     User = prompt('Infelizmente, esse nome já está em uso. Tente outro nome:');
 
     Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
@@ -50,9 +45,13 @@ let Txt;
 let Type;
 let Time;
 
+let Chat;
+
 let View;
 
 function Load(Response) {
+    Chat = '';
+
     for (let i = 0; i < (Response.data).length; i++) {
         From = Response.data[i].from;
         To = Response.data[i].to;
@@ -62,20 +61,22 @@ function Load(Response) {
 
         switch(Type) {
             case 'status':
-                document.querySelector('.Container').innerHTML += `<div class="System_message"><time>${Time}</time><strong>${From}</strong> ${Txt}</div>`;
+                Chat += `<div class="System_message"><time>${Time}</time><strong>${From}</strong> ${Txt}</div>`;
                 break;
             
             case 'message':
-                document.querySelector('.Container').innerHTML += `<div class="Public_message"><time>${Time}</time><strong>${From}</strong> para <strong>${To}</strong><span>:</span>${Txt}</div>`;
+                Chat += `<div class="Public_message"><time>${Time}</time><strong>${From}</strong> para <strong>${To}</strong><span>:</span>${Txt}</div>`;
                 break;
 
             case 'private_message':
                 if (From == User || To == User) {
-                    document.querySelector('.Container').innerHTML += `<div class="Private_message"><time>${Time}</time><strong>${From}</strong> reservadamente para <strong>${To}</strong><span>:</span>${Txt}</div>`;
+                    Chat += `<div class="Private_message"><time>${Time}</time><strong>${From}</strong> reservadamente para <strong>${To}</strong><span>:</span>${Txt}</div>`;
                 }
                 break;
         }
     }
+
+    document.querySelector('.Container').innerHTML = Chat;
 
     View = document.querySelector('.Container div:last-child');
     View.scrollIntoView();
@@ -92,16 +93,13 @@ let Post;
 let Message;
 
 function ErrorPost(Response) {
-    console.log('ErrorPost');
-    console.log(Response);
+    window.location.reload();
 }
 
 function Enter() {
     Message = document.querySelector('textarea').value;
 
-    Post = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', {from: User, to: 'Rainha do zapzap', text: Message, type:'private_message'});
+    Post = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', {from: User, to: 'Todos', text: Message, type:'message'});
     Post.then(Clear);
     Post.catch(ErrorPost);
 }
-
-// teste
