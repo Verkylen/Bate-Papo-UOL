@@ -1,27 +1,8 @@
-// let User;
-// let Login;
-
-// function Enter() {
-//     User = document.querySelector('.Pop_up input').value;
-//     document.querySelector('.Pop_up input').value = '';
-
-//     if (User !== '') { 
-//         Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
-//         Login.then(Refresh);
-//         Login.catch(Fail);
-    // }
-// }
-
 let User = prompt('Digite seu nome de usuário:');
 let Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
 
 function Fail() {
     User = prompt('Infelizmente, esse nome já está em uso ou é inválido. Tente outro nome:');
-    // alert(`
-    // Infelizmente, esse nome já está em uso ou é inválido. 😕
-
-    // Por favor, tente outro nome. 😊
-    // `);
 
     Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
     Login.then(Refresh);
@@ -46,11 +27,6 @@ let IdInterval;
 let Request;
 
 function Refresh() {
-    // if (!document.querySelector('.Pop_up').classList.contains('Ocult')) {
-    //     document.querySelector('.Pop_up').classList.add('Ocult');
-    //     setInterval(Active, 5000);
-    // }
-
     if (Check) {
         setInterval(Active, 5000);
         Check = false;
