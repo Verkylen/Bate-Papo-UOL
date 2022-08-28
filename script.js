@@ -1,8 +1,27 @@
+// let User;
+// let Login;
+
+// function Enter() {
+//     User = document.querySelector('.Pop_up input').value;
+//     document.querySelector('.Pop_up input').value = '';
+
+//     if (User !== '') { 
+//         Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
+//         Login.then(Refresh);
+//         Login.catch(Fail);
+    // }
+// }
+
 let User = prompt('Digite seu nome de usuário:');
 let Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
 
-function Fail(Response) {
-    User = prompt('Infelizmente, esse nome já está em uso. Tente outro nome:');
+function Fail() {
+    User = prompt('Infelizmente, esse nome já está em uso ou é inválido. Tente outro nome:');
+    // alert(`
+    // Infelizmente, esse nome já está em uso ou é inválido. 😕
+
+    // Por favor, tente outro nome. 😊
+    // `);
 
     Login = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', {name: User});
     Login.then(Refresh);
@@ -16,18 +35,27 @@ function Active() {
     axios.post('https://mock-api.driven.com.br/api/v6/uol/status', {name: User});
 }
 
-setInterval(Active, 5000);
-
 function ErrorRequest(Response) {
     console.log('ErrorRequest');
     console.log(Response);
 }
 
+let Check = true;
 let Run = true;
 let IdInterval;
 let Request;
 
 function Refresh() {
+    // if (!document.querySelector('.Pop_up').classList.contains('Ocult')) {
+    //     document.querySelector('.Pop_up').classList.add('Ocult');
+    //     setInterval(Active, 5000);
+    // }
+
+    if (Check) {
+        setInterval(Active, 5000);
+        Check = false;
+    }
+
     Request = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     Request.then(Load);
     Request.catch(ErrorRequest);
@@ -69,7 +97,7 @@ function Load(Response) {
                 break;
 
             case 'private_message':
-                if (From == User || To == User) {
+                if (From === User || To === User) {
                     Chat += `<div class="Private_message"><time>${Time}</time><strong>${From}</strong> reservadamente para <strong>${To}</strong><span>:</span>${Txt}</div>`;
                 }
                 break;
@@ -83,7 +111,6 @@ function Load(Response) {
 }
 
 function Clear() {
-    document.querySelector('textarea').value = '';
     clearInterval(IdInterval);
     Run = true;
     Refresh();
@@ -92,14 +119,17 @@ function Clear() {
 let Post;
 let Message;
 
-function ErrorPost(Response) {
+function ErrorPost() {
     window.location.reload();
 }
 
-function Enter() {
+function Send() {
     Message = document.querySelector('textarea').value;
 
-    Post = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', {from: User, to: 'Todos', text: Message, type:'message'});
-    Post.then(Clear);
-    Post.catch(ErrorPost);
+    if (Message !== '') {
+        Post = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', {from: User, to: 'Todos', text: Message, type:'message'});
+        Post.then(Clear);
+        Post.catch(ErrorPost);
+        document.querySelector('textarea').value = '';
+    }
 }

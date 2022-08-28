@@ -5,6 +5,70 @@ body {
     background-color: #f3f3f3;
 }
 
+/* .Pop_up {
+    width: 450px;
+    Height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Pop_up img {
+    width: 130px;
+    height: 92px;
+    margin-top: 72px;
+    margin-bottom: 94px;
+}
+
+.Pop_up input {
+    width: 261px;
+    height: 54px;
+    margin-bottom: 15px;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+}
+
+.Pop_up input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #aeaeae;
+}
+
+.Pop_up input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.Pop_up button {
+    width: 109px;
+    height: 45px;
+    border: none;
+    border-radius: 9px;
+    background-color: #e7e7e7;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #696969;
+}
+
+.Ocult {
+    display: none;
+} */
+
 header {
     width: 450px;
     height: 80px;
@@ -17,7 +81,7 @@ header {
     display: flex;
 }
 
-img {
+header img {
     width: 75px;
     height: 53px;
     margin: 16px auto auto 22px;
@@ -40,7 +104,7 @@ header ion-icon {
     padding: 8px;
     word-wrap: break-word;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 20px;
 }
 
 .System_message {
@@ -92,6 +156,7 @@ footer textarea {
     border: none;
     resize: none;
     padding: 20px 0;
+    color: #000000;
 }
 
 footer textarea::placeholder {
@@ -102,7 +167,7 @@ footer textarea::placeholder {
     
 }
 
-textarea:focus {
+footer textarea:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
@@ -113,6 +178,7 @@ footer ion-icon {
 }
 
 @media (max-width: 450px) {
+    .Pop_up,
     header,
     .Container,
     footer {
