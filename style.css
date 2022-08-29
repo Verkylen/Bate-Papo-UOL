@@ -194,52 +194,6 @@ footer ion-icon {
     margin: 0 18px 0 auto;
 }
 
-aside {
-    display: initial;
-    width: 259px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 191px;
-    z-index: 2;
-    padding: 0 17px;
-    background-color: #ffffff;
-}
-
-aside div {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: #000000;
-    background-color: blue;
-}
-
-aside ul li {
-    display: flex;
-    align-items: center;
-    background-color: green;
-}
-
-aside ul li span {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: #000000;
-}
-
-aside ul li ion-icon[name="people"],
-aside ul li ion-icon[name="person-circle"] {
-    font-size: 25px;
-}
-
-aside ul li ion-icon[name="checkmark-outline"] {
-    font-size: 25px;
-    color: #28bb25;
-    margin: 0 0 0 auto;
-}
-
 @media (max-width: 450px) {
     .Pop_up,
     header,
