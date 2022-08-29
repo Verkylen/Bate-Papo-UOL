@@ -109,6 +109,7 @@ let Post;
 let Message;
 
 function ErrorPost() {
+  alert('Falha de conexão com o servidor. Você foi desconectado. ☹️');
   window.location.reload();
 }
 
