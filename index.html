@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <title>Bate-Papo UOL</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="Pop_up">
+      <img src="images/logo 2.png" alt="Imagem não suportada ou indisponível" />
+      <section class="Entry">
+        <input type="text" placeholder="Digite seu nome de usuário" />
+        <button onclick="Enter()">Entrar</button>
+      </section>
 
-    <header>
-        <img src="images/logo.png" alt="Imagem não suportada ou indisponível">
-        <ion-icon name="people"></ion-icon>
-    </header>
-
-    <div class="Container">
+      <section class="Loading Ocult">
+        <img
+          src="images/spinner.gif"
+          alt="Imagem não suportada ou indisponível"
+        />
+        <span>Entrando...</span>
+      </section>
     </div>
 
+    <header>
+      <img src="images/logo.png" alt="Imagem não suportada ou indisponível" />
+      <ion-icon name="people"></ion-icon>
+    </header>
+
+    <div class="Container"></div>
+
     <footer>
-        <textarea type="text" placeholder="Escreva aqui..."></textarea>
-        <ion-icon name="paper-plane-outline" onclick="Send()"></ion-icon>
+      <textarea type="text" placeholder="Escreva aqui..."></textarea>
+      <ion-icon name="paper-plane-outline" onclick="Send()"></ion-icon>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 
     <script src="script.js"></script>
-    
-</body>
+  </body>
 </html>

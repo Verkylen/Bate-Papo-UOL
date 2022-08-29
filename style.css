@@ -1,8 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: #f3f3f3;
+}
+
+.Pop_up {
+    width: 450px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Pop_up > img {
+    width: 130px;
+    height: 92px;
+    margin-top: 72px;
+    margin-bottom: 94px;
+}
+
+.Entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Entry input {
+    width: 261px;
+    height: 54px;
+    margin-bottom: 15px;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000000;
+}
+
+.Entry input::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #aeaeae;
+}
+
+.Entry input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.Entry button {
+    width: 109px;
+    height: 45px;
+    border: none;
+    border-radius: 9px;
+    background-color: #e7e7e7;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #696969;
+}
+
+.Loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Loading span {
+    font-size: 17px;
+    font-weight: 400px;
+    margin-top: 20px;
+}
+
+.Ocult {
+    display: none;
 }
 
 header {
@@ -55,16 +137,16 @@ header ion-icon {
     background-color: #ffdede;
 }
 
-time {
+.Container div time {
     margin-right: 8px;
     color: #aaaaaa;
 }
 
-strong {
+.Container div strong {
     font-weight: 700;
 }
 
-span {
+.Container div span {
     margin-right: 8px;
 }
 
@@ -82,7 +164,7 @@ footer {
 }
 
 footer textarea {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
@@ -100,7 +182,6 @@ footer textarea::placeholder {
     font-weight: 400;
     font-style: italic;
     color: #000000;
-    
 }
 
 footer textarea:focus {
@@ -113,11 +194,57 @@ footer ion-icon {
     margin: 0 18px 0 auto;
 }
 
+aside {
+    display: initial;
+    width: 259px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 191px;
+    z-index: 2;
+    padding: 0 17px;
+    background-color: #ffffff;
+}
+
+aside div {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    background-color: blue;
+}
+
+aside ul li {
+    display: flex;
+    align-items: center;
+    background-color: green;
+}
+
+aside ul li span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+aside ul li ion-icon[name="people"],
+aside ul li ion-icon[name="person-circle"] {
+    font-size: 25px;
+}
+
+aside ul li ion-icon[name="checkmark-outline"] {
+    font-size: 25px;
+    color: #28bb25;
+    margin: 0 0 0 auto;
+}
+
 @media (max-width: 450px) {
     .Pop_up,
     header,
     .Container,
     footer {
-        width: 100%;
-    }
+    width: 100%;
+  }
 }
