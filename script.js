@@ -16,11 +16,6 @@ function Active() {
     axios.post('https://mock-api.driven.com.br/api/v6/uol/status', {name: User});
 }
 
-function ErrorRequest(Response) {
-    console.log('ErrorRequest');
-    console.log(Response);
-}
-
 let Check = true;
 let Run = true;
 let IdInterval;
@@ -34,7 +29,6 @@ function Refresh() {
 
     Request = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     Request.then(Load);
-    Request.catch(ErrorRequest);
 
     if (Run) {
         IdInterval = setInterval(Refresh, 3000);
